@@ -1,0 +1,188 @@
+<template>
+  <section id="intro" class="main">
+								<div class="container">
+									<div class="row">
+										<div class="col-md-4 col-lg-3 col-sm-12">
+									<div class="cardx">
+										<div class="face face1">
+											<div class="content">
+												<img src="images/drone (3).svg">
+												<h3>Interactive Design</h3>
+											</div>
+										</div>
+										<div class="face face2">
+											<div class="content">
+												<p>We Provide best UI /UX Designs for websites & apps</p>
+												<a href="#"></a>
+											</div>
+										</div>
+									</div>
+									</div>
+									<div class="col-md-4 col-lg-3 col-sm-12">
+									<div class="cardx">
+										<div class="face face1">
+											<div class="content">
+												<img src="images/drone (2).svg">
+												<h3>Cloud Solutions</h3>
+											</div>
+										</div>
+										<div class="face face2">
+											<div class="content">
+												<p>Perfect cloud solutions for all your applications with cloud storage.</p>
+												<a href="#"></a>
+											</div>
+										</div>
+									</div>
+									</div>
+									<div class="col-md-4 col-lg-3 col-sm-12">
+									<div class="cardx">
+										<div class="face face1">
+											<div class="content">
+												<img src="images/drone (1).svg">
+												<h3>E- Commerce</h3>
+											</div>
+										</div>
+										<div class="face face2">
+											<div class="content">
+												<p>Perfect place for your commercial  needs and perfect solutions</p>
+												<a href="#"></a>
+											</div>
+										</div>
+									</div>
+									</div>
+									<div class="col-md-4 col-lg-3 col-sm-12">
+									<div class="cardx">
+										<div class="face face1">
+											<div class="content">
+												<img src="images/drone (4).svg">
+												<h3>Internet of Things</h3>
+											</div>
+										</div>
+										<div class="face face2">
+											<div class="content">
+												<p>Connecting your things to internet world, Best IOT Solutions provided.</p>
+												<a href="#"></a>
+											</div>
+										</div>
+									</div>
+									</div>
+									</div>
+
+								</div>
+							</section>
+</template>
+
+<script>
+export default {
+    name:'services'
+}
+</script>
+
+<style scoped>
+*
+{
+	margin: 0;
+	padding: 0;
+}
+body
+{
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	min-height: 10vh;
+
+	font-family: consolas;
+}
+.container
+{
+	/*width: 1000px;*/
+	display: flex;
+	position: relative;
+	justify-content: space-around;
+}
+.container .cardx
+{
+	position: relative;
+}
+.container .cardx .face
+{
+	width: 250px;
+	height: 200px;
+	transition: 0.5s;
+}
+.container .cardx .face.face1
+{
+	position: relative;
+	background-image: url(images/overlay.png),linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
+	background:#fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	z-index: 1;
+	transform: translateY(100px);
+}
+.container .cardx:hover .face.face1
+{
+	transform: translateY(0);
+	background-image: linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
+}
+.container .cardx .face.face1 .content
+{
+	transition: 0.5s;
+	opacity: 0.2;
+}
+.container .cardx:hover .face.face1 .content
+{
+	opacity: 1;
+}
+.container .cardx .face.face1 .content img
+{
+	max-width: 100px;
+	margin:0 55px;
+}
+.container .cardx .face.face1 .content h3
+{
+	margin: 10px 0 0;
+	padding: 0;
+	color: #fff;
+	text-align: center;
+	font-size: 1.5em;
+}
+.container .cardx .face.face2
+{
+	position: relative;
+	background: #fff;
+	display: flex;
+	justify-content: center;
+	align-items: center;
+	/*padding: 20px;*/
+	box-sizing: border-box;
+	box-shadow: 0 20px 50px rgba(0,0,0,.8);
+	transform: translateY(-100px);
+}
+
+.container .cardx:hover .face.face2
+{
+	transform: translateY(0);
+}
+.container .cardx .face.face2 .content p
+{
+	margin: 0;
+	padding: 0;
+}
+.container .cardx .face.face2 .content a
+{
+	margin: 15px 0 0;
+	display: inline-block;
+	text-decoration: none;
+	font-weight: 900;
+	color: #333;
+	padding: 5px;
+	border: 1px solid #333;
+}
+.container .cardx .face.face2 .content a:hover
+{
+	background: #333;
+	color: #fff;
+}
+</style>
