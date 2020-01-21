@@ -20,6 +20,7 @@ import team from '../components/team.vue'
 import counter from '../components/counter.vue'
 import about from '../components/about.vue'
 
+
 export default {
   name: 'Home',
   components: {

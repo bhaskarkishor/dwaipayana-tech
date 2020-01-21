@@ -51,12 +51,19 @@
             </blockquote>
         </div>
         </div>
+        
+        <softwares/>
+            
   </section>
 </template>
 
 <script>
+import softwares from './portfolio/softwares.vue'
 export default {
-    name:'about'
+    name:'about',
+    components:{
+        softwares
+    }
 }
 </script>
 

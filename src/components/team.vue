@@ -8,17 +8,18 @@
   <div class="container">
     <div class="boxX">
         <div class="imgBx">
-            <img src="../assets/images/adult.jpg">
+            <img src="../assets/images/team/web.jpg">
         </div>
         <div class="content">
             <div>
                 <p>
                 Team Member<br>
-                    CEO
+                    Web Developer
                 </p>
             </div>
         </div> 
     </div>
+    <!--
     <div class="boxX">
         <div class="imgBx">
             <img src="../assets/images/adult.jpg">
@@ -45,7 +46,7 @@
                 </p>
             </div>         
         </div> 
-    </div>
+    </div>-->
   </div>
 </section>
 </div>
