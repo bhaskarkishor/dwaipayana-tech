@@ -161,7 +161,7 @@ input, select, textarea {
 		-ms-transition: color 0.2s ease, border-bottom 0.2s ease;
 		transition: color 0.2s ease, border-bottom 0.2s ease;
 		text-decoration: none;
-		border-bottom: dotted 1px;
+		/*border-bottom: dotted 1px;*/
 		color: inherit;
 	}
 
@@ -2637,7 +2637,7 @@ input, select, textarea {
 	}
 
 	header.major {
-		margin-bottom: 3em;
+		margin-bottom: 0em;
 	}
 
 		header.major h2 {
@@ -3258,7 +3258,7 @@ input, select, textarea {
 		}
 
 		#nav + #main {
-			padding-top: 4.25em;
+			padding-top: 1.25em;
 		}
 
 		#nav ul {

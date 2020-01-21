@@ -1,11 +1,12 @@
 <template>
 <div>
   <section id="about" class="main">
-								<div class="spotlight">
-									<div class="content col-9">
-										<header class="major">
+    <header class="major">
 											<h2>Welcome to Digital Life </h2>
 										</header>
+								<div class="spotlight" style="text-align:left;">
+									<div class="content col-9">
+										
 										<p>Dwaipayana technologies is the start-up and fastest IT solution provider company head quartered in Bengaluru, India operating in autonomous solution providers for applications like Software development, Hardware development, Web development & services, Android & ios applications, Industrial training & Internship programme.</p>
 										<ul class="actions">
 											<li><a href="generic.html" class="button">Learn More</a></li>
@@ -334,10 +335,11 @@ body {
   height: 100%;
 }
 .col-3{
-	width:30%
+	width:30%;
+  height:15rem;
 }
 .col-9{
-	width:70%;
+	
 }
 .wrap {
   position: relative;

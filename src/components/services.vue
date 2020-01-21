@@ -1,93 +1,62 @@
 <template>
-<div class="container-full">
+<div class="container-full cols">
 	<header class="major">
  		<h2>Our Services</h2>
 	</header>
-	<div class="fancy-cards">
-			
-		<div class="fancy-card">
-			<div class="top">
-			<div class="caption">
-				<h3 class="title">Interactive Design</h3>
-				<p>We Provide best UI /UX Designs for <br>websites & apps.</p>
-			</div>
-			</div>
-			<div class="middle"></div>
-			<div class="bottom"></div>
-		</div>
-	</div>
+<div class="fancy-cards">
+  
+  <div class="fancy-card" v-for="service in services" v-bind:key="service.name">
+    <div class="top">
+      <div class="caption">
+        <h3 class="title">{{service.name}}</h3>
+        <p>{{service.desc}}</p>
+      </div>
+    </div>
+    <div class="middle"></div>
+    <div class="bottom"></div>
+  </div>
 
-	<div class="fancy-cards">	
-		<div class="fancy-card">
-			<div class="top">
-			<div class="caption">
-				<h3 class="title">Cloud Solutions</h3>
-				<p>Perfect cloud solutions for all your applications with cloud storage.</p>
-												
-			</div>
-			</div>
-			<div class="middle"></div>
-			<div class="bottom"></div>
-		</div>
-	</div>
 
-	<div class="fancy-cards">	
-		<div class="fancy-card">
-			<div class="top">
-			<div class="caption">
-				<h3 class="title">E- Commerce</h3>
-				<p>Perfect place for your commercial  needs and perfect solutions.</p>
-			</div>
-			</div>
-			<div class="middle"></div>
-			<div class="bottom"></div>
-		</div>
-	</div>
+</div>
 
-	<div class="fancy-cards">	
-		<div class="fancy-card">
-			<div class="top">
-			<div class="caption">
-				<h3 class="title">Internet of Things</h3>
-				<p>Connecting your things to internet world, Best IOT Solutions provided.</p>
-												
-			</div>
-			</div>
-			<div class="middle"></div>
-			<div class="bottom"></div>
-		</div>
-	</div>
+
 </div>
 </template>
 
 <script>
+import services from '../static/serviceCard.json'
+
 export default {
-	name:'services'
+	name:'services',
+	data(){
+		return{
+			services:services
+		}
+	}
 }
 </script>
 
 <style>
-.container-full{
-	width:100%;
-	margin: auto;
-  display:grid;
-  grid-gap:0;
-  grid-template-columns: repeat(4,1fr); 
+html{
+  font-family: 'open sans';
 }
-.major{
-  grid-column: 1 / -1;
-  grid-row:span 1;
+h1{
+  margin-top: 30px;
+  margin-bottom: 15px;
 }
+
 .fancy-cards{
   text-align: center;
   margin: auto;
- 
+  margin-bottom:20px;
+}
+.fancy-card{
+	margin:0 5px;
 }
 .fancy-cards .fancy-card{
   display: inline-block;
   position: relative;
-  top: 0;
-  left: 0;
+  
   box-sizing: border-box;
 }
 
@@ -97,8 +66,7 @@ export default {
   position: relative;
   border-radius: 3px;
   overflow: hidden;
-  
-  width:15vw;
+  width: 240px;
   height: 250px;
   transition: transform 300ms linear-out;
 }
@@ -106,7 +74,7 @@ export default {
   z-index: 3;
   transform: scale(1.0);
   transition: transform 300ms cubic-bezier(0.22, 0.61, 0.36, 1);
-  background-image: url('../assets/css/images/overlay.png'),linear-gradient(45deg, #e37682 15%, #5f4d93 85%);;
+  background-image: url('../assets/images/overlay.png'),linear-gradient(45deg, #e37682 15%, #5f4d93 85%);
   background-size: cover;
   background-position: center;
   box-shadow: 0px 1px 3px rgba(25,25,25,0.30);
@@ -131,7 +99,7 @@ export default {
 .fancy-card .caption{
   overflow: hidden;
   background: rgba(255,255,255,0.75);
-  padding: 10px 10px;
+  padding: 15px 10px;
   position: absolute;
   bottom: 0px;
   left: 0px;
@@ -139,7 +107,7 @@ export default {
 }
 .fancy-card .caption .title{
   color: #222;
-  margin: 0px 0px 10px 0px;
+  margin: 0px 0px 15px 0px;
   font-size: 1.4rem;
 }
 .fancy-card .caption .button{

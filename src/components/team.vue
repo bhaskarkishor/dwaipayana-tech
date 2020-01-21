@@ -1,5 +1,10 @@
 <template>
-<section class="bodyx">
+<div>
+    <header class="major">
+            <h2>Our Team</h2><br>
+          </header>
+<section class="">
+    
   <div class="container">
     <div class="boxX">
         <div class="imgBx">
@@ -43,6 +48,7 @@
     </div>
   </div>
 </section>
+</div>
 </template>
 
 <script>

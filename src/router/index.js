@@ -11,13 +11,73 @@ const routes = [
     component: Home
   },
   {
-    path: '/about',
-    name: 'about',
-    // route level code-splitting
-    // this generates a separate chunk (about.[hash].js) for this route
-    // which is lazy-loaded when the route is visited.
-    component: function () {
-      return import(/* webpackChunkName: "about" */ '../views/About.vue')
+    path:'/contactus',
+    name:'contactus',
+    component:function(){
+      return import('../views/contactus.vue')
+    }
+  },
+  {
+    path:'/career',
+    name:'career',
+    component:function(){
+      return import('../views/career.vue')
+    }
+  },
+  {
+    path:'/clients',
+    name:'clients',
+    component:function(){
+      return import('../views/clients.vue')
+    }
+  },
+  {
+    path:'/services',
+    name:'services',
+    component:function(){
+      return import('../views/services.vue')
+    }
+  },
+  {
+    path:'/portfolio',
+    name:'portfolio',
+    component:function(){
+      return import('../views/portfolio.vue')
+    }
+  },
+  {
+    path:'/mobile',
+    name:'mobile',
+    component:function(){
+      return import('../components/portfolio/mobile.vue')
+    }
+  },
+  {
+    path:'/website',
+    name:'websites',
+    component:function(){
+      return import('../components/portfolio/websites.vue')
+    }
+  },
+  {
+    path:'/hardware',
+    name:'hardware',
+    component:function(){
+      return import('../components/portfolio/hardwares.vue')
+    }
+  },
+  {
+    path:'/software',
+    name:'softwares',
+    component:function(){
+      return import('../components/portfolio/softwares.vue')
+    }
+  },
+  {
+    path:'*',
+    name:'error',
+    component:function(){
+      return import('../views/error.vue')
     }
   }
 ]

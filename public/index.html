@@ -7,9 +7,40 @@
 		<link rel="stylesheet" href="assets/css/main.css" />
 		
 		<noscript><link rel="stylesheet" href="assets/css/noscript.css" /></noscript>
+		<style>
+
+			.dropdown {
+			position: relative;
+			display: inline-block;
+			}
+
+			.dropdown-content {
+			display: none;
+			position: absolute;
+			background-color: #f1f1f1;
+			min-width: 160px;
+			
+			z-index: 1;
+			}
+
+			.dropdown-content a {
+			
+			
+			text-decoration: none;
+			display: block;
+			}
+
+			/* Change color of dropdown links on hover */
+			.dropdown-content a:hover {background-color: #ddd;}
+
+			/* Show the dropdown menu on hover */
+			.dropdown:hover .dropdown-content {display: block;}
+
+
+		</style>
 	</head>
 	<body class="is-preload">
-
+		<canvas></canvas>
 		<div id="wrapper">
 			
 			<!--wave animation-->
@@ -25,27 +56,35 @@
 				<!-- Nav -->
 					<nav id="nav">
 						<ul>
-							<li><a href="#intro" class="active">About Us</a></li>
-							<li><a href="#intro">Services</a></li>
-							<li><a href="#">Career</a></li>
-							<li><a href="#">Portfolio</a></li>
-							<li><a href="#clients">Our Clients</a></li>
-							<li><a href="#cta">Contact Us</a></li>
+							<li><a href="/">Home</a></li>
+							<li><a href="/services">Services</a></li>
+							<li> <div class="dropdown">
+								<a href="#" class="dropbtn">Portfolio <i class="fa fa-caret-down"></i></a>
+								<div class="dropdown-content">
+								  <a href="/mobile">Mobile Apps</a><br>
+								  <a href="/software">Software </a><br>
+								  <a href="/hardware">Hardware </a><br>
+								  <a href="/website">Websites</a>
+								</div>
+							  </div> </li>
+							<li><a href="/clients">Our Clients</a></li>
+							<li><a href="/career">Career</a></li>
+							<li><a href="/contactus">Contact Us</a></li>
 						</ul>
 					</nav>
 	
 				<!-- Main -->
-					<div id="app">
-			  
+					
+						<div id="app"></div>
 				  
-					</div>
+				
 					<!-- Header -->
 						
 	
 					<!-- Footer -->
 					<footer id="footer">
 						<section>
-							<h2>Dwaipayana Technologies</h2>
+							<h1>Dwaipayana Technologies</h1>
 							<p>Dwaipayana technologies is the start-up and fastest IT solution provider company head quartered in Bengaluru, India operating in autonomous solution providers for applications like Software development, Hardware designing & development, Web development & services,Mobile applications development, Internet of things development, Industrial training & Internship programme. Our main aim is to provide the best technology services for our clients and help them to grow in their businesses.</p>
 							<ul class="actions">
 								<li><a href="about.html" class="button">Learn More</a></li>
@@ -66,6 +105,17 @@
 								<dt>Email</dt>
 								<dd><a href="#">info@dwaipayanatechnologies.com</a></dd>
 							</dl>
+							<h5>Branch office</h5>
+							<dl class="alt">
+								<dt>Address</dt>
+								<dd># 25/758-1
+									Old Raghavendra Swami Colony
+									Vasanthapeta
+									Proddutur- 516360, Kadapa dist
+									Andhra Pradesh</dd>
+									<dt>E-mail</dt><dd>cvamsik5@gmail.com</dd>
+									<dt>Mobile</dt><dd>+91 7337763918</dd>
+							</dl>
 							<ul class="icons">
 								<li><a href="https://www.linkedin.com/in/dwaipayana-technologies-173731175/" class="icon brands fa-linkedin alt"><span class="label">LinkedIn</span></a></li>
 								<li><a href="https://www.facebook.com/Dwaipayanatechnologies/" class="icon brands fa-facebook-f alt"><span class="label">Facebook</span></a></li>
@@ -78,8 +128,139 @@
 					</footer>
 	
 				</div>
-		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
+		
 		<!-- Scripts -->
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r68/three.min.js"></script>
+		<script>
+			var SEPARATION = 50, AMOUNTX = 60, AMOUNTY = 30;
+
+			var container;
+			var camera, scene, renderer;
+			/*
+
+			if (window.WebGLRenderingContext){
+				renderer = new THREE.WebGLRenderer({ alpha: true, antialias: true });
+				}
+			else {
+				renderer = new THREE.CanvasRenderer();
+				}
+			*/
+
+			var particles, particle, count = 0;
+
+			var windowHalfX = window.innerWidth / 2;
+			var windowHalfY = window.innerHeight / 2;
+
+			init();
+			animate();
+
+			function init() {
+				
+				container = document.createElement( 'div' );
+				document.body.appendChild( container );
+				if(container) {
+					container.className += container.className ? ' waves' : 'waves';
+				}
+
+				camera = new THREE.PerspectiveCamera( 120, window.innerWidth / window.innerHeight, 1, 10000 );
+				camera.position.y = 180; //changes how far back you can see i.e the particles towards horizon
+				camera.position.z = 20; //This is how close or far the particles are seen
+				
+				camera.rotation.x = 0.15;
+				
+				scene = new THREE.Scene();
+
+				particles = new Array();
+
+				var PI2 = Math.PI * 2;
+				var material = new THREE.SpriteCanvasMaterial( {
+
+					color: 0xffffff, //changes color of particles
+					program: function ( context ) {
+
+						context.beginPath();
+						context.arc( 0, 0, 0.5, 0, PI2, true );
+						context.fill();
+
+					}
+
+				} );
+
+				var i = 0;
+
+				for ( var ix = 0; ix < AMOUNTX; ix ++ ) {
+
+					for ( var iy = 0; iy < AMOUNTY; iy ++ ) {
+
+						particle = particles[ i ++ ] = new THREE.Sprite( material );
+						particle.position.x = ix * SEPARATION - ( ( AMOUNTX * SEPARATION ) / 2 );
+						particle.position.z = iy * SEPARATION - ( ( AMOUNTY * SEPARATION ) - 10 );
+						scene.add( particle );
+
+					}
+
+				}
+
+				renderer = new THREE.CanvasRenderer({ alpha: true });
+				renderer.setSize( window.innerWidth, window.innerHeight );
+				renderer.setClearColor( 0xffffff, 0);
+				container.appendChild( renderer.domElement );
+
+				window.addEventListener( 'resize', onWindowResize, false );
+
+			}
+
+			function onWindowResize() {
+
+				windowHalfX = window.innerWidth / 2;
+				windowHalfY = window.innerHeight / 2;
+
+				camera.aspect = window.innerWidth / window.innerHeight;
+				camera.updateProjectionMatrix();
+
+				renderer.setSize( window.innerWidth, window.innerHeight );
+
+			}
+
+			function animate() {
+
+				requestAnimationFrame( animate );
+
+				render();
+
+			}
+
+			function render() {
+
+				var i = 0;
+
+				for ( var ix = 0; ix < AMOUNTX; ix ++ ) {
+
+					for ( var iy = 0; iy < AMOUNTY; iy ++ ) {
+
+						particle = particles[ i++ ];
+						particle.position.y = ( Math.sin( ( ix + count ) * 0.5 ) * 15 ) + ( Math.sin( ( iy + count ) * 0.5 ) * 15 );
+						particle.scale.x = particle.scale.y = ( Math.sin( ( ix + count ) * 0.5 ) + 2 ) * 4 + ( Math.sin( ( iy + count ) * 0.5 ) + 1 ) * 4;
+
+					}
+
+				}
+
+				renderer.render( scene, camera );
+
+				// This increases or decreases speed
+				count += 0.09;
+
+			}
+		</script>
+		<style>
+			canvas{
+			  position: absolute;
+			  top:0%;
+			  left:0;
+			  z-index:-1;
+			}
+		</style>
 		<script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.11"></script>
 			<script>
 				var options = {
@@ -91,6 +272,7 @@
 
 				var typed = new Typed('#titlex', options);
 			</script>
+			
 			<script src="assets/js/jquery.min.js"></script>
 			<script src="assets/js/jquery.scrollex.min.js"></script>
 			<script src="assets/js/jquery.scrolly.min.js"></script>

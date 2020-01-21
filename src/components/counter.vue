@@ -4,135 +4,170 @@
 									<h2>Counters</h2>
 									<p>With the Internet spreading linke wildfire and reaching every part of our daily life, more and more traffic is directed to websites  & mobile apps in search for information.</p>
 								</header>
-								<ul class="statistics">
-									<li class="style1">
-										<span class="icon solid fa-folder"></span>
-										<h2 class="timer count-title count-number" data-to="10" data-speed="150">+</h2>
-										 Mobile Apps
-									</li>
-									<li class="style2">
-										<span class="icon solid fa-code-branch"></span>
-										<h2 class="timer count-title count-number" data-to="15" data-speed="150">+</h2> Happy Clients
-									</li>
-									<li class="style3">
-										<span class="icon solid fa-signal"></span>
-										<h2 class="timer count-title count-number" data-to="10" data-speed="150">+</h2> Best Websites
-									</li>
-									<li class="style4">
-										<span class="icon solid fa-laptop"></span>
-										<h2 class="timer count-title count-number" data-to="5" data-speed="150">+</h2>Softwares
-									</li>
-								</ul>
 								
-							</section>
+<div class="grid" id="grid">
+  <a class="card"
+                :href="link.one"
+                target="_blank"
+                ref="card"
+                @mousemove="move"
+                @mouseleave="leave"
+                @mouseover="over">
+                  <div class="reflection" ref="refl"></div>
+                  <img src="../assets/images/counter/one.jpg"/>
+    </a>
+	<a class="card"
+                :href="link.one"
+                target="_blank"
+                ref="card"
+                @mousemove="move"
+                @mouseleave="leave"
+                @mouseover="over">
+                  <div class="reflection" ref="refl"></div>
+                  <img src="../assets/images/counter/two.jpg"/>
+    </a>
+	<a class="card"
+                :href="link.one"
+                target="_blank"
+                ref="card"
+                @mousemove="move"
+                @mouseleave="leave"
+                @mouseover="over">
+                  <div class="reflection" ref="refl"></div>
+                  <img src="../assets/images/counter/three.jpg"/>
+    </a>
+	<a class="card"
+                :href="link.one"
+                target="_blank"
+                ref="card"
+                @mousemove="move"
+                @mouseleave="leave"
+                @mouseover="over">
+                  <div class="reflection" ref="refl"></div>
+                  <img src="../assets/images/counter/four.jpg"/>
+    </a>
+    <a class="card" id="logo"
+                :href="link.one"
+                target="_blank"
+                ref="card"
+                @mousemove="move"
+                @mouseleave="leave"
+                @mouseover="over">
+                  <div class="reflection" ref="refl"></div>
+                  <img src="../assets/images/logo_dt.png"/>
+    </a>
+</div>
+								
+</section>
 </template>
 
 <script>
 export default {
-    name:'counter',
-	mounted(){
-		(function ($) {
-	$.fn.countTo = function (options) {
-		options = options || {};
-		
-		return $(this).each(function () {
-			// set options for current element
-			var settings = $.extend({}, $.fn.countTo.defaults, {
-				from:            $(this).data('from'),
-				to:              $(this).data('to'),
-				speed:           $(this).data('speed'),
-				refreshInterval: $(this).data('refresh-interval'),
-				decimals:        $(this).data('decimals')
-			}, options);
-			
-			// how many times to update the value, and how much to increment the value on each update
-			var loops = Math.ceil(settings.speed / settings.refreshInterval),
-				increment = (settings.to - settings.from) / loops;
-			
-			// references & variables that will change with each update
-			var self = this,
-				$self = $(this),
-				loopCount = 0,
-				value = settings.from,
-				data = $self.data('countTo') || {};
-			
-			$self.data('countTo', data);
-			
-			// if an existing interval can be found, clear it first
-			if (data.interval) {
-				clearInterval(data.interval);
+	name:'counter',
+	data(){
+		return{
+			link:{
+				'one':"#"
+			},
+			img:{
+				'one':"../assets/images/counter/one.jpg",
+				'two':"../assets/images/counter/one.jpg"
 			}
-			data.interval = setInterval(updateTimer, settings.refreshInterval);
-			
-			// initialize the element with the starting value
-			render(value);
-			
-			function updateTimer() {
-				value += increment;
-				loopCount++;
-				
-				render(value);
-				
-				if (typeof(settings.onUpdate) == 'function') {
-					settings.onUpdate.call(self, value);
-				}
-				
-				if (loopCount >= loops) {
-					// remove the interval
-					$self.removeData('countTo');
-					clearInterval(data.interval);
-					value = settings.to;
-					
-					if (typeof(settings.onComplete) == 'function') {
-						settings.onComplete.call(self, value);
-					}
-				}
-			}
-			
-			function render(value) {
-				var formattedValue = settings.formatter.call(self, value, settings);
-				$self.html(formattedValue);
-			}
-		});
-	};
-	
-	$.fn.countTo.defaults = {
-		from: 0,               // the number the element should start at
-		to: 0,                 // the number the element should end at
-		speed: 1000,           // how long it should take to count between the target numbers
-		refreshInterval: 100,  // how often the element should be updated
-		decimals: 0,           // the number of decimal places to show
-		formatter: formatter,  // handler for formatting the value before rendering
-		onUpdate: null,        // callback method for every time the element is updated
-		onComplete: null       // callback method for when the element finishes updating
-	};
-	
-	function formatter(value, settings) {
-		return value.toFixed(settings.decimals);
-	}
-}(jQuery));
+		}
+	},
+	methods:{
+		 over() {
+      const refl = this.$refs.refl;
+      refl.style.opacity = 1;
+    },
+    leave() {
+      const card = this.$refs.card;
+      const refl = this.$refs.refl;
+      card.style.transform = `perspective(500px) scale(1)`;
+      refl.style.opacity = 0;
+    },
 
-jQuery(function ($) {
-  // custom formatting example
-  $('.count-number').data('countToOptions', {
-	formatter: function (value, options) {
-	  return value.toFixed(options.decimals).replace(/\B(?=(?:\d{3})+(?!\d))/g, ',');
-	}
-  });
-  
-  // start all the timers
-  $('.timer').each(count);  
-  
-  function count(options) {
-	var $this = $(this);
-	options = $.extend({}, options || {}, $this.data('countToOptions') || {});
-	$this.countTo(options);
-  }
-});
+    move() {
+      const card = this.$refs.card;
+      const refl = this.$refs.refl;
+
+      const relX = (event.offsetX + 1) / card.offsetWidth;
+      const relY = (event.offsetY + 1) / card.offsetHeight;
+      const rotY = `rotateY(${(relX - 0.5) * 60}deg)`;
+      const rotX = `rotateX(${(relY - 0.5) * -60}deg)`;
+      card.style.transform = `perspective(500px) scale(2) ${rotY} ${rotX}`;
+
+      const lightX = this.scale(relX, 0, 1, 150, -50);
+      const lightY = this.scale(relY, 0, 1, 30, -100);
+      const lightConstrain = Math.min(Math.max(relY, 0.3), 0.7);
+      const lightOpacity = this.scale(lightConstrain, 0.3, 1, 1, 0) * 255;
+      const lightShade = `rgba(${lightOpacity}, ${lightOpacity}, ${lightOpacity}, 1)`;
+      const lightShadeBlack = `rgba(0, 0, 0, 1)`;
+      refl.style.backgroundImage = `radial-gradient(circle at ${lightX}% ${lightY}%, ${lightShade} 20%, ${lightShadeBlack})`;
+    },
+    scale: (val, inMin, inMax, outMin, outMax) =>
+    outMin + (val - inMin) * (outMax - outMin) / (inMax - inMin)
 	}
 }
 </script>
 
 <style scoped>
+@media screen and (max-width:760px){
+  #logo{
+    display:none;
+  }
+}
+#grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, 150px);
+  grid-column-gap: 30px;
+  grid-row-gap: 30px;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  
+}
+#grid .card {
+  background-color: #ccc;
+  width: 150px;
+  height: 150px;
+  transition: all 0.1s ease;
+  border-radius: 3px;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0);
+  overflow: hidden;
+  cursor: pointer;
+}
+#grid .card:hover {
+  -webkit-transform: scale(2);
+          transform: scale(2);
+  z-index: 2;
+  box-shadow: 0 10px 20px rgba(0, 0, 0, 0.4);
+}
+#grid .card:hover img {
+  -webkit-filter: grayscale(0);
+          filter: grayscale(0);
+}
+#grid .card .reflection {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  z-index: 2;
+  left: 0;
+  top: 0;
+  transition: all 0.1s ease;
+  opacity: 0;
+  mix-blend-mode: soft-light;
+}
+#grid .card img {
+  width: 100%;
+  height: 100%;
+  -o-object-fit: cover;
+     object-fit: cover;
+  -webkit-filter: grayscale(0.65);
+          filter: grayscale(0.65);
+  transition: all 0.3s ease;
+}
 
 </style>
