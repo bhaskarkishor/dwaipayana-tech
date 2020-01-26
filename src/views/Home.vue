@@ -9,6 +9,7 @@
           <counter/>
           
           <team/>
+          
   </div>
 </template>
 

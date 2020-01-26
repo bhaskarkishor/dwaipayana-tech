@@ -1,7 +1,7 @@
 <template>
 <section>
     <header class="major">
-        <h2>Our Responsive Websites</h2>
+        <h2>Our Tremendous Websites</h2>
        
     </header>
     <carousel-3d :autoplay="true" :autoplay-timeout="2000" :width="1362" :height="657" :controls-visible="true" :controls-prev-html="'&#10092;'" :controls-next-html="'&#10093;'" 

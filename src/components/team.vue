@@ -3,52 +3,67 @@
     <header class="major">
             <h2>Our Team</h2><br>
           </header>
-<section class="">
+    <section class="">
     
-  <div class="container">
-    <div class="boxX">
-        <div class="imgBx">
-            <img src="../assets/images/team/web.jpg">
-        </div>
-        <div class="content">
-            <div>
-                <p>
-                Team Member<br>
-                    Web Developer
-                </p>
+        <div class="container">
+    
+    
+            <div class="boxX">
+                <div class="imgBx">
+                    <img src="../assets/images/team/ceo.jpeg">
+                </div>
+                <div class="content">
+                    <div>
+                        
+                        <p>CEO<br>
+                        Founder
+                        </p>
+                    </div>
+                </div> 
             </div>
-        </div> 
-    </div>
-    <!--
-    <div class="boxX">
-        <div class="imgBx">
-            <img src="../assets/images/adult.jpg">
-        </div>
-        <div class="content">
-            <div>
-                
-                <p>Team Member<br>
-                    Managing Partner
-                </p>
+            <div class="boxX">
+                <div class="imgBx">
+                    <img src="../assets/images/team/app.jpeg">
+                </div>
+                <div class="content">
+                    <div>
+                        
+                        <p>
+                            Ohiduzzaman<br>
+                            App Developer
+                        </p>
+                    </div>         
+                </div> 
             </div>
-        </div> 
-    </div>
-    <div class="boxX">
-        <div class="imgBx">
-            <img src="../assets/images/adult.jpg">
+            <div class="boxX">
+                <div class="imgBx">
+                    <img src="../assets/images/team/samarth.jpeg">
+                </div>
+                <div class="content">
+                    <div>
+                        
+                        <p>
+                            Samrath Agastya<br>
+                            App Developer
+                        </p>
+                    </div>         
+                </div> 
+            </div>
+            <div class="boxX">
+                <div class="imgBx">
+                    <img src="../assets/images/team/web.jpg">
+                </div>
+                <div class="content">
+                    <div>
+                        <p>
+                        Bhaskar<br>
+                            Web Developer
+                        </p>
+                    </div>
+                </div> 
+            </div>
         </div>
-        <div class="content">
-            <div>
-                
-                <p>
-                    Team Member<br>
-                    Senior Developer
-                </p>
-            </div>         
-        </div> 
-    </div>-->
-  </div>
-</section>
+    </section>
 </div>
 </template>
 
@@ -73,14 +88,14 @@ export default {
 }
 .container{
     position: relative;
-    width:1100px;
+   
     display:flex;
     flex-wrap:wrap;
 
 }
 .container .boxX{
     position: relative;
-    width:275px;
+    width:250px;
     height: 275px;
     overflow:hidden;
     transition:0.1s;

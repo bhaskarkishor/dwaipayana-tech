@@ -53,16 +53,21 @@
         </div>
         
         <softwares/>
-            
+        <mobile/>
+        <websites/>
   </section>
 </template>
 
 <script>
 import softwares from './portfolio/softwares.vue'
+import mobile from './portfolio/mobile.vue'
+import websites from './portfolio/websites.vue'
 export default {
     name:'about',
     components:{
-        softwares
+        softwares,
+        mobile,
+        websites
     }
 }
 </script>
