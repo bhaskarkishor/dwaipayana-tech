@@ -1,4 +1,4 @@
-# dwaipayana2
+# Dwaipayana Technologies
 
 ## Project setup
 ```
