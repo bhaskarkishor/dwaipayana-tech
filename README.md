@@ -1,6 +1,6 @@
 # Dwaipayana Technologies
 This was a frontend only website created using vuejs stack created by me during my remote internship.
-Visit [dwaipayanatechnologies.com/](https://dwaipayanatechnologies.com/)
+
 ## Project setup
 ```
 npm install
