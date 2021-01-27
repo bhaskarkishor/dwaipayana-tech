@@ -1,6 +1,6 @@
 # Dwaipayana Technologies
 This was a frontend only website created using vuejs stack created by me during my remote internship.  
-[Have a look](https://dwaipayna.web.app/)
+[https://sample-work-dwaipayana.netlify.app/](https://sample-work-dwaipayana.netlify.app/)
 
 ## Project setup
 ```
